@@ -9,9 +9,18 @@ INSTALL
 $ go build
 ```
 
-alternatively
+alternatively set env variable GOPATH to existing folder
 ```
-$ go get http://github.com/dtravin/wsbroadcast
+$ echo "export GOPATH=/home/user/go" >> ~/.bashrc
+$ echo "export PATH=$PATH:$GOPATH/bin" >> ~/.bashrc
+```
+reload bash
+```
+$ . ~/.bashrc
+```
+install with go tools
+```
+$ go get github.com/dtravin/wsbroadcast
 ```
 
 
@@ -31,7 +40,7 @@ $ wsdump http://localhost:7777 > out.1
 
 Check for handshake message present at first line
 ```
-$ head -2 o2 | grep -i jsmp
+$ head -2 out.1 | grep -i jsmp
 Binary file (standard input) matches
 ```
 
