@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"runtime"
 )
 
 var ListenPort int
@@ -24,7 +25,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-
+	runtime.GOMAXPROCS(2)
 	listenPortPtr := flag.Int("l", 8080, "A port to listen for client connections")
 	var inputStreamURI string
 	flag.StringVar(&inputStreamURI, "i", "", "Input WS stream URL")
